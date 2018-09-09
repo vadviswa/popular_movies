@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MovieDetailActivity">
+
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".MovieDetailActivity">
+
+        <TextView
+            android:id="@+id/movie_title_tv"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin_80dp"
+            android:background="@color/colorPrimaryDark"
+            android:gravity="center_vertical"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            tools:text="Avengers: Infinity War" />
+
+        <ImageView
+            android:id="@+id/movie_detail_image"
+            android:layout_width="@dimen/movie_small_image_width"
+            android:layout_height="@dimen/movie_small_image_height"
+            android:layout_marginTop="@dimen/margin_16dp"
+            android:adjustViewBounds="true"
+            android:contentDescription="null"
+            android:scaleType="centerCrop"
+            app:layout_constraintTop_toBottomOf="@id/movie_title_tv" />
+
+        <TextView
+            android:id="@+id/movie_detail_release_date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_16dp"
+            android:layout_marginTop="@dimen/margin_16dp"
+            android:textSize="20sp"
+            app:layout_constraintLeft_toRightOf="@id/movie_detail_image"
+            app:layout_constraintTop_toBottomOf="@id/movie_title_tv"
+            tools:text="2018-04-25" />
+
+        <TextView
+            android:id="@+id/movie_detail_ratings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_16dp"
+            android:layout_marginTop="@dimen/margin_16dp"
+            android:textSize="20sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintLeft_toRightOf="@id/movie_detail_image"
+            app:layout_constraintTop_toBottomOf="@id/movie_detail_release_date"
+            tools:text="8.3" />
+
+
+        <TextView
+            android:id="@+id/movie_synopsis_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_8dp"
+            android:layout_marginRight="@dimen/margin_8dp"
+            android:layout_marginTop="@dimen/margin_16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/movie_detail_image"
+            tools:text="As the Avengers and their allies have continued to protect the world from threats too large for any one hero to handle, a new danger has emerged from the cosmic shadows: Thanos. A despot of intergalactic infamy, his goal is to collect all six Infinity Stones, artifacts of unimaginable power, and use them to inflict his twisted will on all of reality. Everything the Avengers have fought for has led up to this moment - the fate of Earth and existence itself has never been more uncertain." />
+
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>

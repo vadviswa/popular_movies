@@ -1,0 +1,8 @@
+/build
+# Android Studio
+/.idea/*
+!/.idea/codeStyleSettings.xml
+!/.idea/runConfigurations/
+.gradle
+*.iws
+*.iml
