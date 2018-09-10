@@ -5,8 +5,8 @@ package com.movies.popular.vvaddi.popularmovies.model;
  */
 
 public enum MovieSort {
-    MOST_POPULAR("popularity.desc"),
-    TOP_RATED("vote_count.desc");
+    MOST_POPULAR("popular"),
+    TOP_RATED("top_rated");
 
     String sortParameter;
 

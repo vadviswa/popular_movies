@@ -2,5 +2,6 @@
     <string name="app_name">Popular Movies</string>
     <string name="sort_by_most_popular">Most Popular</string>
     <string name="sort_by_top_rated">Top Rated</string>
-    <string name="movie_details">Movie Detials</string>
+    <string name="movie_details">Movie Details</string>
+    <string name="retry_error">Please retry</string>
 </resources>

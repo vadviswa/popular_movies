@@ -1,18 +1,19 @@
 package com.movies.popular.vvaddi.popularmovies.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.util.Log;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Stores Movie Details
  */
-public class PopularMovie implements Serializable {
+public class PopularMovie implements Parcelable {
 
     private static final String LOG = "PopularMovie";
     private final static String RESULTS = "results";
@@ -27,6 +28,17 @@ public class PopularMovie implements Serializable {
     private String overview;
     private String userRating;
     private String releaseDate;
+
+    public PopularMovie() {
+    }
+
+    protected PopularMovie(Parcel in) {
+        this.title = in.readString();
+        this.image = in.readString();
+        this.overview = in.readString();
+        this.userRating = in.readString();
+        this.releaseDate = in.readString();
+    }
 
     public String getTitle() {
         return title;
@@ -93,4 +105,30 @@ public class PopularMovie implements Serializable {
         }
         return movieList;
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(title);
+        dest.writeString(image);
+        dest.writeString(overview);
+        dest.writeString(userRating);
+        dest.writeString(releaseDate);
+    }
+
+    public static final Parcelable.Creator<PopularMovie> CREATOR = new Parcelable.Creator<PopularMovie>() {
+        @Override
+        public PopularMovie createFromParcel(Parcel source) {
+            return new PopularMovie(source);
+        }
+
+        @Override
+        public PopularMovie[] newArray(int size) {
+            return new PopularMovie[size];
+        }
+    };
 }

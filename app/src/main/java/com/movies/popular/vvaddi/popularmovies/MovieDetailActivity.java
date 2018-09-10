@@ -1,7 +1,6 @@
 package com.movies.popular.vvaddi.popularmovies;
 
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
@@ -10,8 +9,6 @@ import android.widget.TextView;
 
 import com.movies.popular.vvaddi.popularmovies.model.PopularMovie;
 import com.squareup.picasso.Picasso;
-
-import org.w3c.dom.Text;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -50,11 +47,21 @@ public class MovieDetailActivity extends AppCompatActivity {
         PopularMovie movie = (getIntent().getExtras().get(MOVIE) == null) ? null : (PopularMovie) getIntent().getExtras().get(MOVIE);
         if (movie != null) {
             setTitle(R.string.movie_details);
-            movieTitle.setText(movie.getTitle());
-            movieRatings.setText(movie.getUserRating());
-            movieReleaseDate.setText(movie.getReleaseDate().substring(0, movie.getReleaseDate().indexOf("-")));
-            movieSnopsis.setText(movie.getOverview());
-            Picasso.with(this).load(MovieArrayAdapter.IMAGE_BASE_URL + movie.getImage()).into(imageView);
+
+            if (!TextUtils.isEmpty(movie.getTitle()))
+                movieTitle.setText(movie.getTitle());
+
+            if (!TextUtils.isEmpty(movie.getUserRating()))
+                movieRatings.setText(movie.getUserRating());
+
+            if (!TextUtils.isEmpty(movie.getReleaseDate()) && movie.getReleaseDate().contains("-"))
+                movieReleaseDate.setText(movie.getReleaseDate().substring(0, movie.getReleaseDate().indexOf("-")));
+
+            if (!TextUtils.isEmpty(movie.getOverview()))
+                movieSnopsis.setText(movie.getOverview());
+
+            if (!TextUtils.isEmpty(movie.getImage()))
+                Picasso.with(this).load(MovieArrayAdapter.IMAGE_BASE_URL + movie.getImage()).into(imageView);
         }
     }
 }
