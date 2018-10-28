@@ -1,8 +1,11 @@
 package com.movies.popular.vvaddi.popularmovies;
 
+import android.arch.lifecycle.Observer;
+import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -85,22 +88,18 @@ public class MainActivity extends AppCompatActivity implements MovieArrayAdapter
                 return true;
 
             case R.id.movie_favorite:
-                AppExecutors.getInstance().diskIO().execute(new Runnable() {
+                MainViewModel mainViewModel = ViewModelProviders.of(this).get(MainViewModel.class);
+                mainViewModel.getMovieEntries().observe(MainActivity.this, new Observer<List<MovieEntry>>() {
                     @Override
-                    public void run() {
+                    public void onChanged(@Nullable List<MovieEntry> dbMovieEntries) {
                         final ArrayList<PopularMovie> movies = new ArrayList<>();
-                        List<MovieEntry> dbEntries = appDatabase.taskDao().loadAllMovies();
-                        for (MovieEntry entry : dbEntries) {
+                        for (MovieEntry entry : dbMovieEntries) {
                             movies.add(new PopularMovie(entry));
                         }
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                adapter.refreshPopularMovies(movies);
-                            }
-                        });
+                        adapter.refreshPopularMovies(movies);
                     }
                 });
+
                 return true;
         }
         return super.onOptionsItemSelected(item);
