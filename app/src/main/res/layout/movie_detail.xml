@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:scrollbars="vertical"
     tools:context=".MovieDetailActivity">
 
     <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -20,7 +21,7 @@
             android:background="@color/colorPrimaryDark"
             android:gravity="center_vertical"
             android:textColor="@color/white"
-            android:textSize="30sp"
+            android:textSize="@dimen/textsize_30"
             tools:text="Avengers: Infinity War" />
 
         <ImageView
@@ -39,7 +40,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/margin_16dp"
             android:layout_marginTop="@dimen/margin_16dp"
-            android:textSize="20sp"
+            android:textSize="@dimen/textsize_20"
             app:layout_constraintLeft_toRightOf="@id/movie_detail_image"
             app:layout_constraintTop_toBottomOf="@id/movie_title_tv"
             tools:text="2018-04-25" />
@@ -50,12 +51,24 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/margin_16dp"
             android:layout_marginTop="@dimen/margin_16dp"
-            android:textSize="20sp"
+            android:textSize="@dimen/textsize_20"
             android:textStyle="bold|italic"
             app:layout_constraintLeft_toRightOf="@id/movie_detail_image"
             app:layout_constraintTop_toBottomOf="@id/movie_detail_release_date"
             tools:text="8.3" />
 
+        <Button
+            android:id="@+id/movie_favorite_btn"
+            android:layout_width="@dimen/favorite_width"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_16dp"
+            android:layout_marginTop="@dimen/margin_16dp"
+            android:background="@color/colorPrimary"
+            android:text="@string/favorite"
+            android:textColor="@color/white"
+            android:textStyle="bold|italic"
+            app:layout_constraintLeft_toRightOf="@id/movie_detail_image"
+            app:layout_constraintTop_toBottomOf="@id/movie_detail_ratings" />
 
         <TextView
             android:id="@+id/movie_synopsis_tv"
@@ -67,7 +80,67 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/movie_detail_image"
-            tools:text="As the Avengers and their allies have continued to protect the world from threats too large for any one hero to handle, a new danger has emerged from the cosmic shadows: Thanos. A despot of intergalactic infamy, his goal is to collect all six Infinity Stones, artifacts of unimaginable power, and use them to inflict his twisted will on all of reality. Everything the Avengers have fought for has led up to this moment - the fate of Earth and existence itself has never been more uncertain." />
+            tools:text="As the Avengers and their allies have continued to protect the world from threats too large for any one hero to handle, a new danger has emerged from the cosmic shadows: Thanos. A despot of intergalactic infamy, his goal is to collect all six Infinity Stones, artifacts of unimaginable power, and use them to inflict his twisted will on all of reality." />
 
+        <TextView
+            android:id="@+id/movie_trailers_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_8dp"
+            android:layout_marginRight="@dimen/margin_8dp"
+            android:layout_marginTop="@dimen/margin_16dp"
+            android:text="@string/trailers"
+            android:textColor="@color/black"
+            android:textSize="@dimen/textsize_20"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/movie_synopsis_tv" />
+
+        <LinearLayout
+            android:id="@+id/movie_trailer_linear_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_8dp"
+            android:layout_marginRight="@dimen/margin_8dp"
+            android:layout_marginTop="@dimen/margin_16dp"
+            android:divider="@android:color/black"
+            android:dividerHeight="@dimen/margin_1dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/movie_trailers_title" />
+
+
+        <TextView
+            android:id="@+id/movie_reviews_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_8dp"
+            android:layout_marginRight="@dimen/margin_8dp"
+            android:layout_marginTop="@dimen/margin_16dp"
+            android:text="@string/reviews"
+            android:textColor="@color/black"
+            android:textSize="@dimen/textsize_20"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/movie_trailer_linear_layout" />
+
+        <TextView
+            android:id="@+id/movie_reviews_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_16dp"
+            android:layout_marginLeft="@dimen/margin_8dp"
+            android:layout_marginRight="@dimen/margin_8dp"
+            android:layout_marginTop="@dimen/margin_16dp"
+            android:autoLink="web"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/movie_reviews_title"
+            tools:text="https://google.com" />
     </android.support.constraint.ConstraintLayout>
 </ScrollView>

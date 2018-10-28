@@ -7,5 +7,8 @@
         <item
             android:id="@+id/movie_sort_most_popular"
             android:title="@string/sort_by_most_popular" />
+        <item
+            android:id="@+id/movie_favorite"
+            android:title="@string/sort_by_favorite" />
     </group>
 </menu>

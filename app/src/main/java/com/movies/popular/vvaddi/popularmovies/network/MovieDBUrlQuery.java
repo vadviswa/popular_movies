@@ -16,6 +16,8 @@ public class MovieDBUrlQuery {
 
     final static String THEMOVIEDB_BASE_URL =
             "https://api.themoviedb.org/3/movie/";
+    final static String REVIEWS = "/reviews";
+    final static String TRAILERS = "/videos";
 
     final static String API_KEY = "api_key";
     final static String API_VALUE = "<<API KEY>>";
@@ -40,6 +42,20 @@ public class MovieDBUrlQuery {
                 .appendQueryParameter(PAGE_KEY, PAGE_VALUE)
                 .build();
 
+        return builtUri.toString();
+    }
+
+    public static String buildReviewUrl(String movieId) {
+        Uri builtUri = Uri.parse(THEMOVIEDB_BASE_URL + movieId + REVIEWS).buildUpon()
+                .appendQueryParameter(API_KEY, API_VALUE)
+                .build();
+        return builtUri.toString();
+    }
+
+    public static String buildTrailerUrl(String movieId) {
+        Uri builtUri = Uri.parse(THEMOVIEDB_BASE_URL + movieId + TRAILERS).buildUpon()
+                .appendQueryParameter(API_KEY, API_VALUE)
+                .build();
         return builtUri.toString();
     }
 }
