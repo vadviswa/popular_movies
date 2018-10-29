@@ -95,8 +95,8 @@ public class MovieDetailActivity extends AppCompatActivity {
             if (!TextUtils.isEmpty(movie.getUserRating()))
                 movieRatings.setText(movie.getUserRating());
 
-            if (!TextUtils.isEmpty(movie.getReleaseDate()) && movie.getReleaseDate().contains("-"))
-                movieReleaseDate.setText(movie.getReleaseDate().substring(0, movie.getReleaseDate().indexOf("-")));
+            if (!TextUtils.isEmpty(movie.getReleaseDate()))
+                movieReleaseDate.setText(movie.getReleaseDate());
 
             if (!TextUtils.isEmpty(movie.getOverview()))
                 movieSnopsis.setText(movie.getOverview());
@@ -155,7 +155,6 @@ public class MovieDetailActivity extends AppCompatActivity {
                                 }
                             }
                         });
-                        finish();
                     }
                 });
             }

@@ -1,4 +1,4 @@
-package com.movies.popular.vvaddi.popularmovies;
+package com.movies.popular.vvaddi.popularmovies.database;
 
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;

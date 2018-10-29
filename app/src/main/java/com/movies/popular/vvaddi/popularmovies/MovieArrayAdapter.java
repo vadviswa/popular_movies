@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import com.movies.popular.vvaddi.popularmovies.model.PopularMovie;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -19,7 +20,7 @@ import java.util.List;
 public class MovieArrayAdapter extends RecyclerView.Adapter<MovieArrayAdapter.PopularMovieViewHolder> {
 
     public static final String IMAGE_BASE_URL = "http://image.tmdb.org/t/p/w185";
-    private List<PopularMovie> popularMovies;
+    private ArrayList<PopularMovie> popularMovies;
     private Context context;
     private final ListItemClickListener listener;
 
@@ -28,7 +29,7 @@ public class MovieArrayAdapter extends RecyclerView.Adapter<MovieArrayAdapter.Po
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public MovieArrayAdapter(@NonNull Context context, @NonNull List<PopularMovie> objects, @NonNull ListItemClickListener listener) {
+    public MovieArrayAdapter(@NonNull Context context, @NonNull ArrayList<PopularMovie> objects, @NonNull ListItemClickListener listener) {
         this.context = context;
         this.popularMovies = objects;
         this.listener = listener;
@@ -69,6 +70,10 @@ public class MovieArrayAdapter extends RecyclerView.Adapter<MovieArrayAdapter.Po
     @Override
     public int getItemCount() {
         return popularMovies.size();
+    }
+
+    public ArrayList<PopularMovie> getPopularMovies() {
+        return popularMovies;
     }
 
     /**
